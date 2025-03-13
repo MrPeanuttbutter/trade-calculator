@@ -1,0 +1,96 @@
+
+extends layout/index.pug
+
+
+block contenido
+    
+    h1.text-center.mt-5 Inicio
+    main.container-fluid(style='width: 80%;')
+        .row.d-flex
+            .col-8.container.bg-light.rounded
+                form#mainform(action="" novalidate).needs-validation
+                    .row.justify-content-center.py-3
+                        .container.w-75.d-flex.justify-content-center
+                            .btn-group.w-100(role='group' aria-label='Basic radio toggle button group')
+                                input#btnradio1.btn-check(type='radio' name='btnradio' autocomplete='off' checked='' value='Long')
+                                label.btn.btn-outline-secondary#btn_long(for='btnradio1') Long
+                                input#btnradio2.btn-check(type='radio' name='btnradio' autocomplete='off' value='Short')
+                                label.btn.btn-outline-secondary#btn_short(for='btnradio2') Short
+                                
+                    .row.justify-content-center.align-items-center.py-3
+                        .container.w-75
+                            .input-group.mb-3
+                                span.input-group-text Apalancamiento
+                                input#aplct.form-control(type='number' min='1' value='1' max='125' aria-label='Amount (to the nearest dollar)')
+
+                            .row.justify-content-center.align-items-center.py-3
+                                input#customRange3.form-range(type='range' min='1' max='125' step='1' value="1")
+
+                    .row.justify-content-center.align-items-center.py-3
+                        .container.w-75
+                            .form-floating.mb-3
+                                input#margin.invalid.form-control(type='number' aria-label='Amount (to the nearest dollar)' required placeholder="Ingrese un importe" step="any")
+                                label(for='margin') Ingrese un importe
+                                .invalid-feedback Ingrese un importe
+                                
+                    .row.justify-content-center.align-items-center.py-3
+                        .container.w-75
+                            .input-group.mb-3
+
+                                input#precA.form-control(type='number' aria-label='Amount (to the nearest dollar)' required placeholder="Precio de apertura" step="any") 
+                                .sk-fading-circle(style="display:none")
+                                        .sk-circle1.sk-circle
+                                        .sk-circle2.sk-circle
+                                        .sk-circle3.sk-circle
+                                        .sk-circle4.sk-circle
+                                        .sk-circle5.sk-circle
+                                        .sk-circle6.sk-circle
+                                        .sk-circle7.sk-circle
+                                        .sk-circle8.sk-circle
+                                        .sk-circle9.sk-circle
+                                        .sk-circle10.sk-circle
+                                        .sk-circle11.sk-circle
+                                        .sk-circle12.sk-circle
+                                button.btn.btn-outline-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false' style="display:") Ultimo precio
+                                    ul.dropdown-menu.dropdown-menu-end
+                                        li
+                                            a#BTC.dropdown-item(href='#') BTC
+                                        li
+                                            a#ETH.dropdown-item(href='#') ETH
+                                        li
+                                            a#DOGE.dropdown-item(href='#') DOGE
+                                        li
+                                            a#LTC.dropdown-item(href='#') LTC
+                                        li
+                                            hr.dropdown-divider
+                                        li
+                                            a#OTHER.dropdown-item(href='#') OTHER    
+                                    .invalid-feedback Ingrese un importe
+
+                    .row.justify-content-center.align-items-center.py-3
+                        .container.w-75
+                            .form-floating.mb-3
+                            
+                                input#precC.form-control(type='number' aria-label='Amount (to the nearest dollar)' required placeholder="Ingrese un importe" step="any")
+                                label(for='precC') Precio Cierre
+                                .invalid-feedback Ingrese un importe 
+
+                    .row.justify-content-center.align-items-center.py-3
+                        .container.w-75
+                            .row
+                                .col
+                                    button#reset.btn.btn-link(type='reset') Reset
+                                .col
+                                    button.btn.w-100.btn-outline-secondary(type='submit') Calculo  
+            .col.container.bg-light.rounded
+                .container.w-100.py-3
+                    p PnL estimado(USDT)
+                    p 
+                        strong.card-body.py-3.fs-2#result -- 
+                        strong.card-body.py-3#porcentual_result
+                    |*El cálculo es sólo para referencia
+          
+
+                
+
+
